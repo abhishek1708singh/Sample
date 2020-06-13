@@ -3,6 +3,8 @@ node{
     git 'https://github.com/abhishek1708singh/Sample';
   }
   stage('Compile-package'){
-    sh 'mvn package';
+  //get maven home path
+  def mvnHome=tool name: 'maven3', type: 'maven'
+    sh "$(mvnHome)/bin/mvn package;
   }
 }
